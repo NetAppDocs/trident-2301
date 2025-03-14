@@ -36,7 +36,7 @@ There are several options available for the management of the SVM:
 
 In each case, the interface should be in DNS, and the DNS name should be used when configuring Trident. This helps to facilitate some DR scenarios, for example, SVM-DR without the use of network identity retention.
 
-There is no preference between having a dedicated or shared management LIF for the SVM, however, you should ensure that your network security policies align with the approach you choose. Regardless, the management LIF should be accessible via DNS to facilitate maximum flexibility should https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-dap/GUID-B9E36563-1C7A-48F5-A9FF-1578B99AADA9.html[SVM-DR^] be used in conjunction with Trident.
+There is no preference between having a dedicated or shared management LIF for the SVM, however, you should ensure that your network security policies align with the approach you choose. Regardless, the management LIF should be accessible via DNS to facilitate maximum flexibility should https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-svm-replication-concept.html[SVM-DR^] be used in conjunction with Trident.
 
 === Limit the maximum volume count
 
@@ -70,7 +70,7 @@ You can specify the CHAP initiator and target usernames and passwords in your ba
 
 === Create and use an SVM QoS policy
 
-Leveraging an ONTAP QoS policy, applied to the SVM, limits the number of IOPS consumable by the Trident provisioned volumes.  This helps to http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-perf-mon/GUID-77DF9BAF-4ED7-43F6-AECE-95DFB0680D2F.html?cp=7_1_2_1_2[prevent a bully^] or out-of-control container from affecting workloads outside of the Trident SVM.
+Leveraging an ONTAP QoS policy, applied to the SVM, limits the number of IOPS consumable by the Trident provisioned volumes.  This helps to https://docs.netapp.com/us-en/ontap/performance-admin/guarantee-throughput-qos-task.html[prevent a bully^] or out-of-control container from affecting workloads outside of the Trident SVM.
 
 You can create a QoS policy for the SVM in a few steps. See the documentation for your version of ONTAP for the most accurate information.  The example below creates a QoS policy that limits the total IOPS available to the SVM to 5000.
 
@@ -96,7 +96,7 @@ IMPORTANT: You should assign the QoS policy group to the SVM *only* if your ONTA
 
 === Create QoS policy groups for Trident
 
-Quality of service (QoS) guarantees that performance of critical workloads is not degraded by competing workloads. ONTAP QoS policy groups provide QoS options for volumes, and enable users to define the throughput ceiling for one or more workloads. For more information about QoS, see https://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-perf-mon/GUID-77DF9BAF-4ED7-43F6-AECE-95DFB0680D2F.html[Guaranteeing throughput with QoS^].
+Quality of service (QoS) guarantees that performance of critical workloads is not degraded by competing workloads. ONTAP QoS policy groups provide QoS options for volumes, and enable users to define the throughput ceiling for one or more workloads. For more information about QoS, see https://docs.netapp.com/us-en/ontap/performance-admin/guarantee-throughput-qos-task.html[Guaranteeing throughput with QoS^].
 You can specify QoS policy groups in the backend or in a storage pool, and they are applied to each volume created in that pool or backend.
 
 ONTAP has two kinds of QoS policy groups: traditional and adaptive. Traditional policy groups provide a flat maximum (or minimum, in later versions) throughput in IOPS. Adaptive QoS automatically scales the throughput to workload size, maintaining the ratio of IOPS to TBs|GBs as the size of the workload changes. This provides a significant advantage when you are managing hundreds or thousands of workloads in a large deployment.
@@ -129,7 +129,7 @@ storage:
 
 * You should apply the policy groups per volume, so that each volume gets the entire throughput as specified by the policy group. Shared policy groups are not supported.
 
-For more information about QoS policy groups, see https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-980/TOC__qos.html[ONTAP 9.8 QoS commands^].
+For more information about QoS policy groups, see https://docs.netapp.com/us-en/ontap-cli-98/index.html[ONTAP 9.8 QoS commands^].
 
 === Limit storage resource access to Kubernetes cluster members
 
@@ -233,8 +233,8 @@ Some of the best practices documentation is listed below. Search the https://www
 *ONTAP*
 
 * https://www.netapp.com/us/media/tr-4067.pdf[NFS Best Practice and Implementation Guide^]
-* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-sanag/home.html[SAN Administration Guide^] (for iSCSI)
-* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-iscsi-rhel-cg/home.html[iSCSI Express Configuration for RHEL^]
+* https://docs.netapp.com/us-en/ontap/san-admin/index.html[SAN storage management^] (for iSCSI)
+* https://docs.netapp.com/us-en/ontap/san-admin/provision-storage.html[iSCSI Express Configuration for RHEL^]
 
 *Element software*
 
