@@ -63,11 +63,11 @@ cluster1::*> volume snapshot restore -vserver vs0 -volume vol3 -snapshot vol3_sn
 
 Replicating data can play an important role in protecting against data loss due to storage array failure.
 
-NOTE: To learn more about ONTAP replication technologies, see the https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/GUID-A9A2F347-3E05-4F80-9E9C-CEF8F0A2F8E1.html[ONTAP documentation^].
+NOTE: To learn more about ONTAP replication technologies, see the https://docs.netapp.com/us-en/ontap/concepts/snapshot-copies-concept.html[ONTAP documentation^].
 
 === SnapMirror Storage Virtual Machines (SVM) replication
 
-You can use https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-concepts/GUID-8B187484-883D-4BB4-A1BC-35AC278BF4DC.html[SnapMirror^] to replicate a complete SVM, which includes its configuration settings and its volumes. In the event of a disaster, you can activate the SnapMirror destination SVM to start serving data. You can switch back to the primary when the systems are restored.
+You can use https://docs.netapp.com/us-en/ontap/concepts/snapmirror-disaster-recovery-data-transfer-concept.html[SnapMirror^] to replicate a complete SVM, which includes its configuration settings and its volumes. In the event of a disaster, you can activate the SnapMirror destination SVM to start serving data. You can switch back to the primary when the systems are restored.
 
 Astra Trident cannot configure replication relationships itself, so the storage administrator can use ONTAP’s SnapMirror SVM Replication feature to automatically replicate volumes to a Disaster Recovery (DR) destination.
 
@@ -120,7 +120,7 @@ Here is an overview of the ONTAP SnapMirror volume replication setup steps:
 
 * Create a SnapMirror policy, which controls the behavior of the relationship and specifies the configuration attributes for that relationship.
 
-* Create a SnapMirror relationship between the destination volume and the source volume by using the https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-cmpr-970/snapmirror__create.html[`snapmirror create` command^] and assign the appropriate SnapMirror policy.
+* Create a SnapMirror relationship between the destination volume and the source volume by using the https://docs.netapp.com/us-en/ontap-cli-97/snapmirror-create.html[`snapmirror create` command^] and assign the appropriate SnapMirror policy.
 
 * After the SnapMirror relationship is created, initialize the relationship so that a baseline transfer from the source volume to the destination volume is completed.
 
