@@ -10,7 +10,7 @@ settings:
   downlevel: true
   versions:
     - version-number: "23.01"
-      url: /trident-2301      
+      url: /trident-2301
     - version-number: "25.06"
       url: /trident
     - version-number: "25.02"
@@ -30,7 +30,7 @@ settings:
     - version-number: "22.10"
       url: /trident-2210      
     - version-number: "22.07"
-      url: /trident-2207 
+      url: /trident-2207    
 sidebar:
   entries:
     - title: Astra Trident docs
